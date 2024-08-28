@@ -5,7 +5,7 @@ import { useState } from "react";
 function App() {
   //queryDescription = input = user prompt
   const [queryDescription, setQueryDescription] = useState("");
-   const [sqlQuery, setSqlQuery] = useState("");
+  const [sqlQuery, setSqlQuery] = useState("");
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -40,6 +40,7 @@ function App() {
           }}
         />
         <input type="submit" value="Generate" />
+        <pre>{sqlQuery}</pre>
       </form>
     </main>
   );
