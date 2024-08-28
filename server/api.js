@@ -6,7 +6,7 @@ dotenv.config();
 
 const openAiApiKey = process.env.OPENAI_API_KEY;
 // To access on the info in the .env file - process.env.nameofvariable
-
+//
 if (!openaiApiKey) {
   console.error("OPENAI_API_KEY is not set!");
   process.exit(1);
