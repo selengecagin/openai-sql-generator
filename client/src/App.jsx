@@ -5,6 +5,7 @@ import { useState } from "react";
 function App() {
   //queryDescription = input = user prompt
   const [queryDescription, setQueryDescription] = useState("");
+   const [sqlQuery, setSqlQuery] = useState("");
 
   const onSubmit = async (e) => {
     e.preventDefault();
