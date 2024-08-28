@@ -11,6 +11,10 @@ function App() {
     console.log("form submitted: ", queryDescription);
   };
 
+  const generateQuery = async () => {
+    const response = await fetch("https://localhost:3005/generate")
+  }
+
   return (
     <main className={styles.main}>
       <img src={sqlLogo} alt="sql-logo" className={styles.icon} />
