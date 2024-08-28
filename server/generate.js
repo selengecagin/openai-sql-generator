@@ -36,7 +36,8 @@ const generate = async (queryDescription) => {
     return response.data.choices[0].message.content;
   };
 
-  return await daVinci(queryDescription);
+  const sqlQuery = await chatGPT(queryDescription);
+  return sqlQuery;
 };
 
 export default generate;
