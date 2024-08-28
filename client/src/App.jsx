@@ -8,6 +8,7 @@ function App() {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    console.log("form submitted: ", queryDescription);
   };
 
   return (
