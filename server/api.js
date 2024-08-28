@@ -16,3 +16,8 @@ if (!openaiApiKey) {
 const configuration = new Configuration({
   apiKey: openAiApiKey,
 });
+
+// Create Open AI object
+const openai = new OpenAIApi(configuration);
+
+export default openai;
