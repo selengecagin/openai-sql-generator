@@ -9,10 +9,16 @@ app.use(cors());
 const port = process.env.PORT || 3005;
 
 // create endpoints
-app.get("/",(req,res)=>{
-    res.json({ status: "operational", message: "API is up and running" });
-})
+app.get("/", (req, res) => {
+  res.json({ status: "operational", message: "API is up and running" });
+});
 
-app.listen(port,()=>{
-    console.log(`Listening on port ${port}`);
-})
+app.post("/generate", (req, res) => {
+  const queryDescription = req.body.queryDescription;
+  console.log("received description: ", queryDescription);
+  res.json({ response: `you sent this: ${queryDescription}` });
+});
+
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
+});
