@@ -12,6 +12,24 @@ const generate = async (queryDescription) => {
     return response.data.choices[0].text;
   };
 
+  const chatGptApi = async (queryDescription) => {
+    const message = [
+      {
+        role: "system",
+        content: `You are a translator from plain English to SQL.`,
+      },
+      {
+        role: "user",
+        content: `Convert the following natural language description into a SQL query:\n\nShow all the elements in the table users`,
+      },
+      { role: "assistant", content: "SELECT * FROM users;" },
+      {
+        role: "user",
+        content: `Convert the following natural language description into a SQL query:\n\n${queryDescription}`,
+      },
+    ];
+  };
+
   return await daVinci(queryDescription);
 };
 
