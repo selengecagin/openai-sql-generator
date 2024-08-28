@@ -13,7 +13,7 @@ function App() {
           name="quesy-description"
           placeholder="Describe your query"
         />
-        
+        <input type="submit" value="Generate" />
       </form>
     </main>
   );
