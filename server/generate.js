@@ -33,6 +33,7 @@ const generate = async (queryDescription) => {
       model: "gpt-3.5-turbo",
       messages: message,
     });
+    return response.data.choices[0].message.content;
   };
 
   return await daVinci(queryDescription);
