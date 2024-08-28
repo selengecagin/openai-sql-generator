@@ -16,6 +16,7 @@ function App() {
           type="text"
           name="quesy-description"
           placeholder="Describe your query"
+          onChange={(e)=>{setQueryDescription(e.target.value)}}
         />
         <input type="submit" value="Generate" />
       </form>
