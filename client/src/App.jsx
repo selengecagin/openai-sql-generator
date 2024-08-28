@@ -6,9 +6,10 @@ function App() {
   //queryDescription = input = user prompt
   const [queryDescription, setQueryDescription] = useState("");
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    console.log("form submitted: ", queryDescription);
+    const query = await generateQuery();
+    setSqlQuery(query);
   };
 
   const generateQuery = async () => {
@@ -19,8 +20,8 @@ function App() {
       },
       body: JSON.stringify({ queryDescription: userPrompt }),
     });
-        const data = await response.json();
-        return data.sqlQuery.trim();
+    const data = await response.json();
+    return data.sqlQuery.trim();
   };
 
   return (
