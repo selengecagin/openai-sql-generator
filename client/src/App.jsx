@@ -1,14 +1,8 @@
-import { useState } from 'react'
-
+import styles from "./index.module.css";
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-    <h1>Hello World</h1>
-    </>
-  )
+  return <main className={styles.main}></main>;
 }
 
-export default App
+export default App;
