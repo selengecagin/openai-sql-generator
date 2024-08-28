@@ -1,23 +1,23 @@
 import express from "express";
 import cors from "cors";
-import generate from "./generate.js";
 
 const app = express();
 app.use(express.json());
-app.use(cors());
 
-const port = process.env.PORT || 3005;
+app.use(cors({ origin: "*" }));
 
-// create endpoints
+const port = process.env.PORT || 3002;
+
+import generate from "./generate.js";
+
 app.get("/", (req, res) => {
-  res.json({ status: "operational", message: "API is up and running" });
+  res.send("Hello World!");
 });
 
 app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
+  console.log(`Listening on port ${port}...`);
 });
 
-// route to handle post requests
 app.post("/generate", async (req, res) => {
   const { queryDescription } = req.body;
   try {
