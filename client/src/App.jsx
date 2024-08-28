@@ -19,6 +19,8 @@ function App() {
       },
       body: JSON.stringify({ queryDescription: userPrompt }),
     });
+        const data = await response.json();
+        return data.sqlQuery.trim();
   };
 
   return (
