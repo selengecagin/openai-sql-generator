@@ -1,8 +1,8 @@
 import express from "express";
 import cors from "cors";
+import generate from "./generate.js";
 
 const app = express();
-
 app.use(express.json());
 app.use(cors());
 
@@ -13,13 +13,18 @@ app.get("/", (req, res) => {
   res.json({ status: "operational", message: "API is up and running" });
 });
 
-// route to handle post requests
-app.post("/generate", (req, res) => {
-  const queryDescription = req.body.queryDescription; // set up on the frontend
-  console.log("Received description: ", queryDescription); // log on the backend
-  res.json({ response: `You sent this: ${queryDescription}` });
-});
-
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
+});
+
+// route to handle post requests
+app.post("/generate", async (req, res) => {
+  const { queryDescription } = req.body;
+  try {
+    const sqlQuery = await generate(queryDescription);
+    res.json({ sqlQuery });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
 });
